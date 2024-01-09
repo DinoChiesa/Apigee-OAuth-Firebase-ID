@@ -1,0 +1,17 @@
+<AssignMessage name='AM-Request-for-Token-Params'>
+  <AssignVariable>
+    <Name>client_creds</Name>
+    <Template>{verifyapikey.VerifyAPIKey-1.client_id}:{verifyapikey.VerifyAPIKey-1.client_secret}</Template>
+  </AssignVariable>
+  <Set>
+    <Headers>
+      <Header name='Authorization'>Basic {encodeBase64(client_creds)}</Header>
+    </Headers>
+    <FormParams>
+      <FormParam name='grant_type'>password</FormParam>
+      <!-- the next two are contrived, to keep the policy happy -->
+      <FormParam name='password'>{jwt.VerifyJWT-Firebase-Id-Token.decoded.claim.sub}</FormParam>
+      <FormParam name='username'>{jwt.VerifyJWT-Firebase-Id-Token.decoded.claim.user_id}</FormParam>
+    </FormParams>
+  </Set>
+</AssignMessage>

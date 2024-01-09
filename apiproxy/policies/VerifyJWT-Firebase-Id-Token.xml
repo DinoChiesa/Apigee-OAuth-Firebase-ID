@@ -1,0 +1,10 @@
+<VerifyJWT name='VerifyJWT-Firebase-Id-Token'>
+  <Algorithm>RS256</Algorithm>
+  <Source>request.formparam.assertion</Source>
+  <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+  <PublicKey>
+    <JWKS uri="https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com"/>
+  </PublicKey>
+  <Issuer>https://securetoken.google.com/cloud-run-2023-380000</Issuer>
+  <Audience>cloud-run-2023-380000</Audience>
+</VerifyJWT>

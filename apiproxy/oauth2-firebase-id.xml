@@ -1,0 +1,12 @@
+<APIProxy revision='1' name='oauth2-firebase-id'>
+  <ConfigurationVersion minorVersion='0' majorVersion='4'/>
+  <CreatedAt>1458959730864</CreatedAt>
+  <CreatedBy>dino</CreatedBy>
+  <Description>Dispense OAuth v2.0 Bearer tokens via jwt-bearer grant type in exchange for a Firebase ID token.</Description>
+  <DisplayName>oauth2-firebase-id</DisplayName>
+  <LastModifiedAt>1464364344438</LastModifiedAt>
+  <LastModifiedBy>orgAdmin</LastModifiedBy>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

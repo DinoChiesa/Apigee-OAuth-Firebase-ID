@@ -1,0 +1,33 @@
+<Javascript name='JS-Groom-Token-Response' timeLimit='200' >
+  <Properties>
+    <Property name='keep'>access_token, expires_in, issued_at, refresh_token, grant_type, authenticated_user, auth_time</Property>
+  </Properties>
+  <Source><![CDATA[
+var origResponse = JSON.parse(response.content);
+if (origResponse.access_token) {
+  var newResponse = {
+      token_type: "Bearer",
+    },
+    toKeep = properties.keep;
+  toKeep.split(new RegExp("[, ]+")).forEach(function (key) {
+    if (origResponse[key]) {
+      newResponse[key] = origResponse[key];
+    }
+  });
+  ['auth_time','issued_at'].forEach(function(key) {
+    if (newResponse[key]) {
+      newResponse[key] = Number(newResponse[key]);
+    }
+  });
+  // Only if there is a refresh token, keep properties related to it:
+  if (origResponse.refresh_token) {
+    newResponse.refresh_token_expires_in =
+      origResponse.refresh_token_expires_in;
+    newResponse.refresh_count = origResponse.refresh_count;
+  }
+
+  context.setVariable("response.content", JSON.stringify(newResponse, null, 2));
+}
+  ]]>
+  </Source>
+</Javascript>

@@ -1,0 +1,11 @@
+<AssignMessage name='AM-Diags'>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>verifyapikey.VerifyAPIKey-1.client_id</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>verifyapikey.VerifyAPIKey-1.client_secret</Ref>
+  </AssignVariable>
+</AssignMessage>
